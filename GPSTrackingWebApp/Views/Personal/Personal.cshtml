@@ -1,0 +1,145 @@
+﻿@{
+    ViewBag.Title = "Personal";
+    Layout = "~/Views/Shared/Master_LayoutPage1.cshtml";
+}
+ 
+@using CaptchaMvc.HtmlHelpers
+@using GPSTrackingWebApp;
+@using CaptchaMvc;
+
+@model GPSTrackingWebApp.Models.Feedback
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+
+<script>
+//   function fun() {
+  //   var z = document.forms["myForm"]["contact"].value;
+    // if (z.length>=10) {
+     //alert(" contact length must be in 10 digit only");
+     //return false;
+      // }
+
+  //}
+    function validateForm() {
+        var x = document.forms["myForm"]["password"].value;
+        var y= document.forms["myForm"]["repassword"].value;
+    
+        if (y == x) {
+
+            return true;
+        }
+        else {
+            alert("password and cpassword must be same");
+            return false;}
+    }
+</script>
+
+
+
+<font color="green" size="12">
+<div style="padding:20px;"> 
+      @if (ViewBag.Message != null)
+         { 
+    
+     @ViewBag.Message
+
+    }
+    </div>
+    </font>
+
+
+
+
+
+
+
+@using(Html.BeginForm("Personal", "Personal", FormMethod.Post, new{enctype="multipart/form-data", name="myForm", onsubmit="return validateForm()"}))
+  {
+            <div style="background-color:white; width:50%; float:inherit; margin-left:300px;">
+        <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="~/Content/User-Administrator-Green-icon.png" style="width:70px; height:70px;" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+                      <input type="hidden"  name="pid" class="form-control" value="xyz" placeholder="Enter Person ID"  maxlength="8" required>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Person Name:</label>
+            <div class="col-sm-9">
+                <input type="text" name="pname" class="form-control" placeholder="Enter Person Name" maxlength="15" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Email:</label>
+            <div class="col-sm-9">
+                <input type="email" ID="email" name="email" class="form-control" placeholder="Enter Your Email ID" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Password:</label>
+            <div class="col-sm-9">
+                <input type="password" ID="password" name="password" class="form-control" placeholder="Enter Your Password" maxlength="8" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">C-Password:</label>
+            <div class="col-sm-9">
+                <input type="password" name="repassword" class="form-control" placeholder="Re-Enter Your Password" maxlength="8" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Contact Number:</label>
+            <div class="col-sm-9">
+                <input type="text"  pattern="[0-9]{10}" name="contact" placeholder="Enter Contact Number" class="form-control" maxlength="10" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">R Contacts:</label>
+            <div class="col-sm-9">
+               <input type="text" name="rcontact1" pattern="[0-9]{10}" placeholder="Enter Relatives Contact 1st" class="form-control" maxlength="10" required>
+             <input type="text" name="rcontact2" pattern="[0-9]{10}" placeholder="Enter Relatives Contact 2nd" class="form-control" maxlength="10" required>
+             <input type="text" name="rcontact3" pattern="[0-9]{10}" placeholder="Enter Relatives Contact 3" class="form-control"  maxlength="10" required>
+             <input type="text" name="rcontact4" pattern="[0-9]{10}" placeholder="Enter Relatives Contact 4" class="form-control" maxlength="10" required>
+          
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-sm-3">Person Pic:</label>
+            <div class="col-sm-9">
+                <input type="file" name="pimg"  class="form-control" required>
+            </div>
+                  
+        </div>
+<br />
+       <div class="col-sm-9">@Html.Captcha(4)</div> 
+
+        <p class="error">@ViewBag.ErrMessage
+            
+ 
+
+
+        
+             <input type="submit" class="btn btn-danger" style="margin-left:0px; width:200px;  margin-top:10px;"></div>
+
+
+
+      <!..................>
+
+
+              <div class="form-group">
+                    <input type="hidden" class="form-control" ID="TextBox6" value="gpstracking96@gmail.com" name="TextBox6" style="width:60%; height:auto;" required>
+            </div>
+           
+ 
+                         <div class="form-group">
+              <input type="hidden" class="form-control" ID="TextBox7"  value="GPS Tracking" name="TextBox7" style="width:60%; height:auto;" required>
+            </div>
+
+
+          </div>
+
+      <!........................................>
+
+  }

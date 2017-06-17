@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/Admin_LayoutPage1.cshtml";
+}
+
+<h2>Post Your Feedback</h2>
+ <form class="form-horizontal" role="form" method="post" action="Feedback" enctype="multipart/form-data" style="padding:40px; ">
+    <div class="form-group">
+      <label class="control-label col-sm-2">UserName</label><br /><br />
+      <div class="col-sm-12">
+        <input type="text" style="width:50%"; class="form-control" name="username" placeholder="Enter Your Name" required maxlength="15">
+      </div>
+    </div>
+          <div class="form-group">
+      <label class="control-label col-sm-2">Comment</label><br /><br />
+      <div class="col-sm-12">          
+        <textarea class="form-control" name="comment" placeholder="Enter Your Comment" rows="5" required maxlength="150"></textarea>
+      </div>
+    </div>
+          <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-6">
+        <button type="submit" class="btn btn-danger">Submit</button>
+                                  @if (ViewBag.Message != null)
+                            {
+                                @ViewBag.Message
+                            }
+ </div>
+    </div>
+     
+     
+   
+
+    </form>

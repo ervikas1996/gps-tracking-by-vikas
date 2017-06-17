@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "ProfilePic";
+    Layout = "~/Views/Shared/Admin_LayoutPage1.cshtml";
+}
+
+ <!-----------------------------------------------------------Your profile pic---------------------------------------------------------------->
+<h2><b> Update Your Profile Picture</b></h2>
+               @using GPSTrackingWebApp
+            @{
+                mygpsEntities2 dxx = new mygpsEntities2();
+                var kx = dxx.persontrackings.ToList();
+                foreach (persontracking c in kx)
+                {
+                    if (c.email.Equals(Session["email"]))
+                    {
+
+
+                       
+                        <form class="form-horizontal" role="form" method="post" action="/AdminPanel/ProfilePic" enctype="multipart/form-data" style="padding:40px; ">
+
+                            <div class="form-group">
+                                <div class="col-sm-8">
+                                    <input type="hidden" value="@c.sno" name="sno" class="form-control">
+                                </div>
+                            </div>
+
+                           
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Profile Pic:</label>
+                                <div class="col-sm-8">
+                                    <input type="file" value="@c.pimg" style="width:80%;" name="pimg" placeholder="update Your Pic" class="form-control" required> 
+                                </div>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-4">
+                                    <button type="submit" class="btn btn-danger"> Update Pic </button>
+                                   
+                                    <font color="green">
+
+                                        @if (ViewBag.Message != null)
+                                        {
+
+                                            @ViewBag.Message
+
+
+                                        }
+
+                                    </font>
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+                        </form>}
+                }}
+
+
+          

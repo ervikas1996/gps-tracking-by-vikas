@@ -1,0 +1,558 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/jquery.min.js">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.js">
+    <link href="~/Content/w3.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Itim' rel='stylesheet'>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+           <style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 8px 8px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 12px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 6px 10px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 10px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    width:90%;
+    padding: 10px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 8px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 4px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+
+    background-color: whitesmoke;
+    margin: 5% auto 8% auto; /* 5% from the top, 15% from the bottom sand centered */
+    border: 1px solid #888;
+    width:50%; /* Could be more or less, depending on screen size */
+    height: auto; /* Could be more or less, depending on screen size */
+
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+
+
+               
+          
+
+
+
+
+
+        .sidenav {
+            border-radius:20px 20px;
+    height: 370px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 200px;
+    right: 0;
+    background-color: #333300;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 40px;
+    color:white;
+}
+
+.sidenav a {
+    padding: 2px 2px 2px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: white;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+
+
+
+        body {
+    font-family: 'Itim';
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+   }
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
+
+</head>
+<body>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+          function googleTranslateElementInit() {
+           new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'en,hi,id,ja,ta,ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                       }
+</script>
+    <!.........login.................>
+   <div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="post" action="GPS/login">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="~/Content/User-Administrator-Green-icon.png" style="width:70px; height:70px;" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>UserId</b></label><br />
+      <input type="text" placeholder="Enter UserID" name="sno" required  maxlength="10" style="width:90%;"><br />
+
+      <label><b>Password</b></label><br />
+      <input type="password" placeholder="Enter Password" name="password" required  maxlength="10" style="width:90%;"> <br />
+        
+      <button type="submit"  style="width:90%;">Login</button><br />
+      <input type="checkbox" checked="checked"> Remember me<br />
+    </div>
+           <button type="button" onclick="document.getElementById('id01').style.display='none'"  class="cancelbtn" style="margin-left:20px;">Cancel</button>
+      <span class="psw" style="margin-right:20px;">Forgot <a href="#">@Html.ActionLink("Password??", "ForgetPass", "GPS")</a></span>
+      
+  
+    </form>
+                  
+    </div>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+    <!......Header............>
+   
+      <div class="col-sm-12 " style="background-color:black;  background-image: url(/../Content/ggg.jpg);  padding:20px;  opacity:1; text-align:left; background-position-y:center; background-repeat:no-repeat; " >
+    
+     <div class="col-sm-6 " style=" text-align:left; padding:20px;" >
+         <img src="~/Content/Map-Marker-Marker-Outside-Pink-icon.png"  style=" margin-top:10px; width:80px;  "><br />
+            <font style="color:indianred; font-size:xx-large;"><b>Track Your Location</b></font>
+            </div>
+    <div class="col-sm-6 " style=" text-align:left; padding:20px;" >
+        
+                             <div class="col-sm-12" style=" color:white; font: bold 15px arial; padding:10px; text-align:right;">
+
+                                <img src="~/Content/Users-icon.png" style="width:40px; height:40px;" />&nbsp
+                                 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; border-radius:30px; background-color:orange;">Login</button>
+            
+
+                                 </div>     
+                                </div>
+         </div>
+<!...............navbar..............>
+
+         <div class="col-sm-12">
+             <div class="row" >
+             <ul class="w3-navbar w3-green" >
+ <li>@Html.ActionLink("Home", "Index", "GPS")</li>
+      <li>@Html.ActionLink("GPS Tracking", "GPSTracking", "GPS")</li>
+                  <li>@Html.ActionLink("Services", "Services", "GPS")</li>
+                 <li>@Html.ActionLink("AboutUs", "Pricing", "GPS")</li>
+
+ 
+ @* <li><a class="w3-hover-red" href="javascript:void(0)" onclick="w3_open()">Contact Us <i class="fa fa-caret-down "></i></a></li>*@
+</ul>
+                
+                 <div class="row">
+<nav class="w3-dropnav w3-card-2" style="display:none" id="myDropnav">
+  <div class="w3-container" style="background-color:lightblue;">
+  <span onclick="w3_close()" class="w3-closebtn w3-xlarge" title="Close Menu">&times;</span>
+  </div>
+  <div class="w3-row-padding w3-padding-bottom">
+  <div class="modal-header1" style="padding:20px; background-color:lightblue;">
+          <h4><span class="glyphicon glyphicon-lock"></span> Email Us</h4>
+        </div>
+        <div class="modal-body" style=" background-color:lightblue; padding: 10px 10px 20px 20px ">
+          <form role="form" method="post" action="/GPS/Email">
+           
+              <div class="form-group">
+              <label for="from"><span class="glyphicon glyphicon-eye-open"></span> Enter Your Email Address</label>
+              <input type="email" class="form-control" ID="TextBox1" name="TextBox1" style="width:60%; height:auto;" required>
+            </div>
+
+               <div class="form-group">
+                    <input type="hidden" class="form-control" ID="TextBox2" value="gpstracking96@gmail.com" name="TextBox2" style="width:60%; height:auto;" required>
+            </div>
+            
+ 
+                         <div class="form-group">
+              <label for="subject"><span class="glyphicon glyphicon-eye-open"></span> Subject</label><br />
+              <input type="text" class="form-control" ID="TextBox3"  name="TextBox3" style="width:60%; height:auto;" required>
+            </div>
+
+
+                     <div class="form-group">
+              <label for="message"><span class="glyphicon glyphicon-eye-open"></span> Enter Your Message</label>
+              <textarea class="form-control" ID="TextBox4" name="TextBox4" style="width:60%; height:100px;" required></textarea>
+            </div>
+
+ 
+         <button type="submit" class="btn btn-danger btn-block" style="width:60%;"><span class="glyphicon glyphicon-off" ></span> Send Mail</button>
+          </form>
+        </div></div>
+      </div>
+      </div>
+ </nav>
+
+<script>
+    var x = document.getElementById("myDropnav");
+    function w3_open() {
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+    function w3_close() {
+        x.className = x.className.replace(" w3-show", "");
+    }
+</script>
+
+         </div>
+
+
+
+        <!.........feedback...............>
+    <div id="mySidenav" class="sidenav"><div style=" margin-left:20px; color:yellow;"> <b>Send Your Feedback</b></div>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <form class="form-horizontal" role="form" method="post" action="GPS" enctype="multipart/form-data" style="padding:20px; ">
+    <div class="form-group">
+      <label class="control-label col-sm-2">UserName</label><br /><br />
+      <div class="col-sm-12">
+        <input type="text" class="form-control" name="username" placeholder="Enter Your Name" required maxlength="20">
+      </div>
+    </div>
+          <div class="form-group">
+      <label class="control-label col-sm-2">Comment</label><br /><br />
+      <div class="col-sm-12">          
+        <textarea class="form-control" name="comment" placeholder="Enter Your Comment" rows="1" required maxlength="150"></textarea>
+      </div>
+    </div>
+          <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-6">
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+
+<!......................fixed............>
+<span style="font-size:30px;  cursor:pointer"  onclick="openNav()" > 
+    <div style="text-align:right; padding:20px; z-index:1; position:fixed; margin-left:1240px; margin-top:560px; " >
+        <img src="~/Content/Comment-icon.png" style="width:50px; height:50px;" /></div></span>
+
+
+    <div class="col-sm-12 simple-back-to-top">
+        <a href="#"><div style="position:fixed; margin-left:1190px; margin-top:344px; z-index:1;">
+            <div style="background-color:lightgreen; border-radius:100px; width:40px; height:40px; text-align:center; padding:0px;">
+                <img src="~/up-arrow.png"></div>
+                    </div></a>    
+
+    </div>
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+
+
+
+    <!........................container..........................>
+   
+    <div class="row"> 
+        @RenderBody()
+                    </div>
+    
+    <!.........login............>
+
+
+
+
+
+
+    <div class="col-sm-12" style="background-color:white;">
+     <div class="row">
+        <div class="col-sm-6" style="background-color:white; padding:40px; color:black; font-size:18px;">
+           <h1> <font color="red"><b>GPS tracking</b></font></h1>
+<h2>benefits & savings<br /></h2>
+Our Company is the recognized leader in the GPS fleet management industry and our GPS Fleet Tracking solution sets the standard for excellence and performance. We are committed to providing fleet operators everywhere with the highest quality, most cost-effective solutions.
+        </div>
+         <div class="col-sm-6" style="background-color:white; padding:10px; color:black; font-size:20px; text-align:center;">
+            <img src="~/Content/12.png" / style="width:77%;">
+        </div>
+    </div>
+    </div>
+
+
+     <div class="col-sm-12" style="background-color:lightgray; text-align:center; padding:20px;">
+            <b><font  color="darkblue"  size="6px">How GPS Personal Tracking Can Improve Your Business</font></b><br />
+            <font color="black"  size="4px">Track Your Location offers an efficient, effective personal tracking system for managing your business. Vehicle Tracking Devices deliver real time information on the location, activity and mobile inventory of your vehicles to improve business performance and customer service. Track Your Truck vehicle tracking devices also provide valuable protections in the event of vehicle theft and recovery. </font>
+    </div>
+
+
+        <div class="col-sm-12" style="background-color:lightgray;">
+     <div class="row">
+        <div class="col-sm-4" style="background-color:lightgray; padding:20px; color:black; font-size:18px; text-align:center; ">
+           <img src="~/Content/optimize.png" / style="width:100%; border:5px solid white; border-radius:10px 10px; background-color:white; "><br />
+            <br />Take control of Your fleet with practical,effective tracking at a lower cost.
+        </div>
+        <div class="col-sm-4" style="background-color:lightgray; padding:20px; color:black; font-size:18px; text-align:center; ">
+           <img src="~/Content/quality.png" / style="width:100%; border:5px solid white; border-radius:10px 10px; background-color:white; "><br />
+            <br />Carrier Satisfied Gps vehical treckingdevice are deliverd fully tested-- with full warranties
+        </div>
+         <div class="col-sm-4" style="background-color:lightgray; padding:20px; color:black; font-size:18px; text-align:center;">
+           <img src="~/Content/customer.png" / style="width:100%; border:5px solid white; border-radius:10px 10px; background-color:white; "><br />
+            <br />Personalized U.S. - based support is focused on meeting customer expectations
+        </div>   
+           </div>
+    </div>
+    
+
+ 
+
+    <div class="col-sm-12" style="background-color:lightslategray;">
+     <div class="row">
+        <div class="col-sm-12" style="background-color:black; padding:10px; color:yellowgreen; font-size:30px; text-align:center; "><u>Track your Location -Benefits your entire management team, including</u></div>
+        <div class="col-sm-6" style="background-color:lightslategray; padding:40px; color:white; font-size:25px; text-align:center; ">
+           <img src="~/Content/Ok-icon.png" / style="width:40px;"> &nbsp Superior route planning <br />vehicle destinations
+        </div>
+         <div class="col-sm-6" style="background-color:lightslategray; padding:40px; color:white; font-size:25px; text-align:center; ">
+           <img src="~/Content/Ok-icon.png" / style="width:40px;"> &nbsp Improve Your Safety<br seeking/> operational
+        </div>
+         <div class="col-sm-12" style="background-color:white; height:2px;"></div>
+         
+         <div class="col-sm-6" style="background-color:lightslategray; padding:40px; color:white; font-size:25px; text-align:center; ">
+           <img src="~/Content/Ok-icon.png" / style="width:40px;"> &nbsp Keep your customers happy  <br />vehicle destinations
+        </div>
+         <div class="col-sm-6" style="background-color:lightslategray; padding:40px; color:white; font-size:25px; text-align:center; ">
+           <img src="~/Content/Ok-icon.png" / style="width:40px;"> &nbsp Optimize financial management<br />operational
+        </div>
+   </div>
+    </div>
+
+
+        <div class="col-sm-12" style="background-color:lightgray; padding:10px; color:black; font-size:20px; text-align:center; ">
+            We represent the highest value GPS vehicle tracker and fleet tracking solution in the industry. Its proven functionality and rapid deployment easily scales whether you’re a small business or a large enterprise organization.<br />
+            <font face="arial" color="darkblue"  size="15px"><b><h1>Discover advanced
+GPS tracking features </h1></b></font>
+        </div>
+
+    
+        <div class="col-sm-12" style="background-color:red;">
+     <div class="row">
+        <div class="col-sm-4" style="background-color:lightgray; padding:20px; color:black; font-size:18px; text-align:center; ">
+           <img src="~/Content/Travel-BMV-icon.png" / style="width:130px; border:5px solid white; border-radius:100px 100px; background-color:white;"><br />
+            <font color="red"><h3><b>GPS Vehicle Tracking</b></h3></font><br />
+            We offer the best professional tool for GPS vehicle tracking and fleet management. A small GPS tracker containing GPS receiver and GPRS.
+        </div>
+           <div class="col-sm-4" style="background-color:lightgray; padding:20px; color:black; font-size:18px; text-align:center; ">
+           <img src="~/Content/personal-information-icon.png" / style="width:130px; border:5px solid white; border-radius:100px 100px; background-color:white;"><br />
+            <font color="red"><h3><b>GPS Personal Tracking</b></h3></font><br />
+            Personal Tracker GPS is a GPS location tracker application through which you can easily track all the locations you have visited
+        </div>
+           <div class="col-sm-4" style="background-color:lightgray; padding:20px; color:black; font-size:18px; text-align:center; ">
+           <img src="~/Content/Start-Menu-Search-icon.png" / style="width:130px; border:5px solid white; border-radius:100px 100px; background-color:white;"><br />
+            <font color="red"><h3><b>Owner Tracking</b></h3></font><br />
+           We'll unlock the potential of your automotive database with our<br /> Owner Tracking
+        </div>
+           </div>
+    </div>
+ 	
+  
+    
+        <div class="col-sm-12" style="background-color:darkblue; background-image:url(/../Content/footer-background.png); padding:10px; color:white; font-size:12px; text-align:left; ">
+[c]CopyRight@2016 Online GPS Tracking <h6>|<a> Privacy </a>|<a> Policy </a>| <a> Terms of Use</a> |<a> Site Map </a> |</h6> 
+*Full Warranty is per sec 7.3 of the TYT Service Agreement found here.<br />
+             Easy Access From Anywhere in the World....
+<div style="text-align:right;">Site Credits :
+Upkar,Vikas,Manjeet, Ankur</div>
+        </div>
+<!...............scroll bar......................>
+<script type="text/javascript">
+    // create the back to top button
+   
+    var amountScrolled = 300;
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > amountScrolled) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 700);
+        return false;
+    });
+</script>
+ 
+
+
+
+
+
+
+
+
+ </body>
+</html>
+
+    

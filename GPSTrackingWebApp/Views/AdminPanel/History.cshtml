@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/Admin_LayoutPage1.cshtml";
+}
+
+<script src="~/Content/jquery.min.js"></script>
+
+@using GPSTrackingWebApp
+@{
+    mygpsEntities2 db = new mygpsEntities2();
+    var m = db.personallonglats.ToList();
+   <input type="date" id="pdate" name="pdate"/>
+}
+<div id="dateListGrid">
+    @Html.Partial("_dateshow")
+</div>
+
+
+<script type="text/javascript">
+
+    $('#pdate').change(function (e) {
+        $('#dateListGrid').hide(1000);
+        alert($(this).val());
+        e.preventDefault();
+        var url = '@Url.Action("Filter")';
+        $.get(url, { pdate: $(this).val() }, function (result) {
+            $('#dateListGrid').html(result).show(1000);
+        });
+    });
+</script>
+    

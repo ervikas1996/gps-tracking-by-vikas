@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/Admin_LayoutPage1.cshtml";
+}
+
+    @using GPSTrackingWebApp
+                @{
+                    mygpsEntities2 dt = new mygpsEntities2();
+                    var k = dt.persontrackings.ToList();
+                     foreach (persontracking c in k)
+                     {
+                          if (c.email.Equals(Session["email"]))
+                          {
+                         
+                         
+<h2>Edit your profile</h2>
+ <form class="form-horizontal" role="form" method="post" action="/AdminPanel/EditProfile" enctype="multipart/form-data" style="padding:40px; ">
+     
+     <div class="form-group">
+            <div class="col-sm-8">
+                <input type="hidden" value="@c.sno"  name="sno" class="form-control">
+            </div>
+        </div>
+     
+     <div class="form-group">
+            <label class="control-label col-sm-3">Person Id :</label>
+            <div class="col-sm-8">
+                <input type="text" value="@c.pid" style="width:80%;" name="pid" placeholder="Enter person Id" class="form-control" readonly maxlength="10">
+            </div>
+        </div>
+
+
+                <div class="form-group">
+            <label class="control-label col-sm-3">Name:</label>
+            <div class="col-sm-8">
+                <input type="text" value="@c.pname" style="width:80%;" name="pname" placeholder="Enter Your Name" class="form-control" required maxlength="20">
+            </div>
+        </div>
+                
+                
+                <div class="form-group">
+            <label class="control-label col-sm-3">Contact Number:</label>
+            <div class="col-sm-8">
+                <input type="text" pattern="[0-9]{10}" style="width:80%;" value="@c.contact" name="contact" placeholder="Enter Contact Number" class="form-control" required maxlength="10">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">R Contacts:</label>
+            <div class="col-sm-8">
+             <input type="text" pattern="[0-9]{10}" name="rcontact1" value="@c.rcontact1" placeholder="R Contact 1st" class="form-control" required maxlength="10">
+             <input type="text" pattern="[0-9]{10}" name="rcontact2" value="@c.rcontact2" placeholder="R Contact 2nd" class="form-control" required maxlength="10">
+             <input type="text" pattern="[0-9]{10}" name="rcontact3" value="@c.rcontact3" placeholder="R Contact 3rd" class="form-control" required maxlength="10">
+             <input type="text" pattern="[0-9]{10}" name="rcontact4" value="@c.rcontact4" placeholder="R Contact 4th" class="form-control" required maxlength="10">
+          
+            </div>
+        </div>
+          <div class="form-group">        
+      <div class="col-sm-offset-3 col-sm-4">
+        <button type="submit" class="btn btn-danger"> Update Profile </button>
+                
+          
+
+<font color="green">
+
+      @if (ViewBag.Message != null)
+         { 
+    
+     @ViewBag.Message
+
+
+    }
+
+
+ </div>
+
+              
+
+    </div>
+     
+     
+   
+
+    </form>}}}
+

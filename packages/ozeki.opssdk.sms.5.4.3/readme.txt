@@ -1,0 +1,1 @@
+For information about the project, please visit the http://www.ozekiphone.com/ozeki-opssdk-sms-1000.html page!

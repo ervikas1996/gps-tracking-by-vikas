@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/jquery.min.js">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.js">
+    <link href="~/Content/w3.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Itim' rel='stylesheet'>
+    <style>
+
+          
+
+/* Set a style for all buttons */
+button {
+    background-color: white;
+    color: white;
+    padding: 7px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 10px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    width:90%;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 4px;
+
+
+    width: 100%; /* Full width */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 4px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+
+    background-color: whitesmoke;
+    margin: 5% auto 8% auto; /* 5% from the top, 15% from the bottom sand centered */
+    border: 1px solid #888;
+    width:50%; /* Could be more or less, depending on screen size */
+    height: auto; /* Could be more or less, depending on screen size */
+
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+
+
+
+
+
+
+        
+        body {
+    font-family: 'Itim';
+}
+
+
+
+
+
+        .dropbtn {
+    background-color: black;
+    color: white;
+    padding: 8px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    border-radius:50px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 4px 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+
+
+
+
+      
+
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+
+
+
+        input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+    </style>
+
+</head>
+<body>
+
+
+    
+<!..........delete2........................>
+
+
+    
+<script>
+    function deleteacc() {
+        return confirm("Are you sure to delete your account????");
+    }
+</script>
+
+
+
+    @using GPSTrackingWebApp
+                @{
+                    mygpsEntities2 dkkk = new mygpsEntities2();
+                    var sk = dkkk.logins.ToList();
+                    foreach (login cdc in sk)
+                    {
+                        if (cdc.email.Equals(Session["email"]))
+                        {
+    
+  <div id="iddelete2" class="modal">
+  
+  <form class="modal-content animate" style="    background-image:url(../Content/hhh.jpg); opacity:0.95; 
+    background-repeat:round;" method="post" action="/AdminPanel/ManageAccount" enctype="multipart/form-data" >
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('iddelete2').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="~/Content/User-Administrator-Green-icon.png" style="width:70px; height:70px;" alt="Avatar" class="avatar">
+    </div>    <div class="container">
+             
+
+
+      <div class="form-group" >
+            <label class="control-label col-sm-3">Enter User Id:</label>
+            <div class="col-sm-8">
+                <input type="text" name="sno" value="@cdc.sno" class="form-control" placeholder="Enter User ID" maxlength="10" readonly>
+            </div>
+        </div>
+
+        
+             <input type="submit" onclick="return deleteacc()" class="btn btn-danger" style="margin-left:150px; margin-top:10px;"></div>
+
+
+        </form>
+       </div>}
+                    }}
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('iddelete2');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+            
+ 
+      
+    <!..........update.................>
+   
+
+
+                  
+        @using GPSTrackingWebApp
+      @{
+                    
+                        
+          mygpsEntities2 dbs = new mygpsEntities2();
+          var mmm = dbs.personallonglats.ToList();
+          foreach (personallonglat j in mmm)
+          {
+              if (j.pid.Equals(Session["id"]))
+              {
+   <div id="idupdate" class="modal">
+  
+  <form class="modal-content animate" method="post" action="/AdminPanel/Update" enctype="multipart/form-data">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('idupdate').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <h3>Update Your Record</h3>
+    </div>
+      
+    
+      
+
+    <div class="container">
+      <label><b>SNo</b></label><br />
+      <input type="text" placeholder="enter sno" name="sno"  value="@j.sno" required  style="width:90%;"><br />
+
+      <label><b>Person Id</b></label><br />
+      <input type="text" placeholder="Enter PersonID" name="pid" value="@j.pid" required  style="width:90%;"><br />
+
+      <label><b>Date</b></label><br />
+      <input type="date" name="pdate" value="@j.pdate" required  style="width:90%;"> <br />
+        
+      <label><b>Time</b></label><br />
+      <input type="text" placeholder="Enter Time" name="ptime" value="@j.ptime" required  style="width:90%;"> <br />
+
+              <label><b>Longitude</b></label><br />
+              <input type="text" placeholder="Enter Longitude" value="@j.longitude" name="longitude" required  style="width:90%;"> <br />
+
+          <label><b>Lattitude</b></label><br />
+          <input type="text" placeholder="Enter Lattitude" name="lattitude" value="@j.lattitude" required  style="width:90%;"> <br /><br />
+
+        
+      <button type="submit" class="btn-danger" style="width:90%; margin-bottom:20px;">Update</button><br />                  
+    </div>
+                        
+    </form>
+    </div> 
+              }
+          }  }              
+                        
+                    
+<script>
+    // Get the modal
+    var modal = document.getElementById('idupdate');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+
+
+    
+
+        <!.........Delete.................>
+   
+<script>
+    function fun(x) {
+        //window.location = "Delete";
+        return confirm("want to delet");
+    }
+
+
+</script>
+
+
+
+
+
+
+        <!......Header............>
+     <div class="col-sm-12 " style="background-color:brown;  height:140px; padding:10px;  opacity:1; text-align:left; background-position-y:center; background-repeat:no-repeat; " >
+         <div><img src="~/Content/Map-Marker-Marker-Outside-Pink-icon.png"  style=" margin-top:10px; width:60px;  "><br />
+            <font style="color:white; font-size:large;"><b>Personal Tracking</b></font></div>
+         <div style="float:right;"><img src="~/Content/Social-Network-Facebook-icon.png" style="width:30px; height:30px;" /> &nbsp <img src="~/Content/Twitter-icon.png" style="width:30px; height:30px;" /> &nbsp <img src="~/Content/Linked-In-icon.png" style="width:30px; height:30px;" />  &nbsp<img src="~/Content/Web-Google-plus-alt-Metro-icon.png" style="width:30px; height:30px;" /></div>
+   </div>
+
+
+    <div class="col-sm-12 " style="background-color:gray;  padding:5px; color:white; opacity:1; text-align:right; background-position-y:center; background-repeat:no-repeat; " >
+     
+
+
+
+
+
+
+
+        
+        
+           @using GPSTrackingWebApp
+            welcome! &nbsp
+                  @{
+                      mygpsEntities2 db = new mygpsEntities2();
+                      var t = db.persontrackings.ToList();
+
+                      foreach (persontracking k in t)
+                      {
+                          if (k.email.Equals(Session["email"]))
+                          {
+                                <div class="dropdown" style="float:right;">
+                                 <button class="dropbtn">
+                                    <img src="@k.pimg" style=" border-radius:100px; color:white; width:40px; height:40px;">
+
+
+                                     @k.pname
+                                 </button>
+
+                                 <div class="dropdown-content">
+                                 @Html.ActionLink("EditProfile", "EditProfile", "AdminPanel")
+                                 @Html.ActionLink("ChangeProfile", "ProfilePic", "AdminPanel")
+                                 @Html.ActionLink("ChangePassword", "ChangePassword", "AdminPanel")
+                                 @Html.ActionLink("ManageAccount", "ManageAccount", "AdminPanel")
+                                 @Html.ActionLink("Logout", "LogOff", "GPS")
+                                 </div>
+                                </div>
+                          }
+                      }
+                      
+                      
+                      
+
+                        }
+
+
+
+
+
+               </div>
+
+
+        <div class="col-sm-3" style="background-color:Highlight; padding:10px; text-align:left; color:black; font-size:large;" >
+           <div style="padding:20px;"> 
+            
+               <div>
+               <img src="~/Content/search-icon.png" style="width:50px; height:50px;" />&nbsp
+                    @Html.ActionLink("Track Your Current Location", "CurrentLoc", "AdminPanel")   <hr />
+                   </div>
+               
+               
+               <div>
+               <img src="~/Content/home-icon.png" style="width:50px; height:50px;" />&nbsp
+                    @Html.ActionLink("Home", "Index", "AdminPanel")   <hr />
+                   </div>
+               <div>
+               <img src="~/Content/Clock_48px.png"  style=" width:30px;  ">
+               @Html.ActionLink("History", "History", "AdminPanel")<hr />
+               </div>
+               <div>
+               <img src="~/Content/Refresh Shield_48px.png"  style=" width:30px;  ">
+               @Html.ActionLink("Update Contacts", "Contacts", "AdminPanel")<hr />
+               </div>
+               
+             
+               <div>
+               <img src="~/Content/Comments_48px.png"  style=" width:30px;  ">
+               @Html.ActionLink("Feedback", "Feedback", "AdminPanel")<hr />
+               </div>
+                 <div>
+               <img src="~/Content/call-us.png"  style=" width:30px;  ">
+               @Html.ActionLink("Contact Us", "ContactUs", "AdminPanel")<hr />
+               </div>
+               <div>
+               <img src="~/Content/Close Window_48px.png"  style=" width:30px;  ">
+               @Html.ActionLink("Logout", "LogOff", "GPS")<hr />
+               </div>
+
+               </div>
+     </div>
+
+        <div class="col-sm-6" style="background-color:white;">@RenderBody()
+     </div>
+
+
+
+
+     <div class="col-sm-3" style="background-color:WindowFrame; background-image:url(../Content/bg3.jpg);  background-position:center; color:black; text-align:center; padding:10px;">
+           <div style="background-color:black; color:white; padding:6px;" ><h5>User Details</h5></div>
+        <div>
+     
+            @using GPSTrackingWebApp
+            
+                  @{
+                      mygpsEntities2 dp = new mygpsEntities2();
+                      var z = dp.persontrackings.ToList();
+
+                      foreach (persontracking k in z)
+                      {
+                          if (k.email.Equals(Session["email"]))
+                          {
+                                 <img src="@k.pimg" width="50" height="50" style=" border-radius:60px; color:white; padding:10px; width:120px; height:120px; text-align:center;">
+                                                            <br /><font style="color:green; font-size:x-large;">@k.pname<br /> </font>                           
+                          }
+                      }
+
+                        }
+
+        </div>
+
+        <div>
+    @using GPSTrackingWebApp
+                @{
+                    mygpsEntities2 dx = new mygpsEntities2();
+                    var d = dx.persontrackings.ToList();
+                    foreach (persontracking k in d)
+                    {
+                        if (k.email.Equals(Session["email"]))
+                        {
+                <table class="table">
+                <thead >
+               <tr >
+               <th style="color:red;">PId :</th>
+               <th>@k.pid</th>
+              </tr>
+              </thead>
+                     
+                     <thead >
+               <tr >
+               <th style="color:red;">Contact</th>
+               <th>@k.contact</th>
+              </tr>
+              </thead>
+                     <thead >
+               <tr >
+               <th style="color:red;">RContact1</th>
+               <th>@k.rcontact1</th>
+              </tr>
+              </thead>
+                                         <thead >
+               <tr >
+               <th style="color:red;">RContact2</th>
+               <th>@k.rcontact2</th>
+              </tr>
+              </thead>
+                                         <thead >
+               <tr >
+               <th style="color:red;">RContact3</th>
+               <th>@k.rcontact3</th>
+              </tr>
+              </thead>
+                                         <thead >
+               <tr >
+               <th style="color:red;">RContact4</th>
+               <th>@k.rcontact4</th>
+              </tr>
+              </thead>
+
+              </table>
+                    
+                        }
+                    }
+                }
+        </div>
+    </div>
+
+
+
+
+
+           <div class="col-sm-12" style="background-color:black; padding:10px; color:white; font-size:12px; text-align:left; ">
+[c]CopyRight@2016 Online GPS Tracking <h6>|<a> Privacy </a>|<a> Policy </a>| <a> Terms of Use</a> |<a> Site Map </a> |</h6> 
+*Full Warranty is per sec 7.3 of the TYT Service Agreement found here.<br />
+             30-day money back guarantee from
+the date the system is shipped excluding shipping and handling fees.
+<div style="text-align:right;">Site Credits :
+Upkar,Vikas,Manjeet</div>
+        </div>
+            
+
+
+</body>
+</html>

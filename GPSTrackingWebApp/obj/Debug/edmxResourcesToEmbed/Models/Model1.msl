@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mygpsModelStoreContainer" CdmEntityContainer="mygpsEntities1">
+    <EntitySetMapping Name="persontrackings">
+      <EntityTypeMapping TypeName="mygpsModel.persontracking">
+        <MappingFragment StoreEntitySet="persontracking">
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="rcontact1" ColumnName="rcontact1" />
+          <ScalarProperty Name="rcontact2" ColumnName="rcontact2" />
+          <ScalarProperty Name="rcontact3" ColumnName="rcontact3" />
+          <ScalarProperty Name="rcontact4" ColumnName="rcontact4" />
+          <ScalarProperty Name="pimg" ColumnName="pimg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

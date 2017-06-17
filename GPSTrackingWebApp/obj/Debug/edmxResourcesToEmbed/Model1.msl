@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mygpsModelStoreContainer" CdmEntityContainer="mygpsEntities2">
+    <EntitySetMapping Name="persontrackings">
+      <EntityTypeMapping TypeName="mygpsModel.persontracking">
+        <MappingFragment StoreEntitySet="persontracking">
+          <ScalarProperty Name="repassword" ColumnName="repassword" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="rcontact1" ColumnName="rcontact1" />
+          <ScalarProperty Name="rcontact2" ColumnName="rcontact2" />
+          <ScalarProperty Name="rcontact3" ColumnName="rcontact3" />
+          <ScalarProperty Name="rcontact4" ColumnName="rcontact4" />
+          <ScalarProperty Name="pimg" ColumnName="pimg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbacks">
+      <EntityTypeMapping TypeName="mygpsModel.feedback">
+        <MappingFragment StoreEntitySet="feedback">
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="mygpsModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="activation" ColumnName="activation" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ownertrackings">
+      <EntityTypeMapping TypeName="mygpsModel.ownertracking">
+        <MappingFragment StoreEntitySet="ownertracking">
+          <ScalarProperty Name="confirmpassword" ColumnName="confirmpassword" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="contactno" ColumnName="contactno" />
+          <ScalarProperty Name="ownerpic" ColumnName="ownerpic" />
+          <ScalarProperty Name="vehicleno" ColumnName="vehicleno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="ownername" ColumnName="ownername" />
+          <ScalarProperty Name="ownerid" ColumnName="ownerid" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicletrackings">
+      <EntityTypeMapping TypeName="mygpsModel.vehicletracking">
+        <MappingFragment StoreEntitySet="vehicletracking">
+          <ScalarProperty Name="currenttankstatus" ColumnName="currenttankstatus" />
+          <ScalarProperty Name="fueltank" ColumnName="fueltank" />
+          <ScalarProperty Name="avgspeed" ColumnName="avgspeed" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="permittype" ColumnName="permittype" />
+          <ScalarProperty Name="permitno" ColumnName="permitno" />
+          <ScalarProperty Name="vno" ColumnName="vno" />
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drivers">
+      <EntityTypeMapping TypeName="mygpsModel.driver">
+        <MappingFragment StoreEntitySet="driver">
+          <ScalarProperty Name="driverimg" ColumnName="driverimg" />
+          <ScalarProperty Name="vehicleno" ColumnName="vehicleno" />
+          <ScalarProperty Name="cpassword" ColumnName="cpassword" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="drivername" ColumnName="drivername" />
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personallonglats">
+      <EntityTypeMapping TypeName="mygpsModel.personallonglat">
+        <MappingFragment StoreEntitySet="personallonglat">
+          <ScalarProperty Name="lattitude" ColumnName="lattitude" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="ptime" ColumnName="ptime" />
+          <ScalarProperty Name="pdate" ColumnName="pdate" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="sno" ColumnName="sno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

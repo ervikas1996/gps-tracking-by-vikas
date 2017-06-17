@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mygpsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="mygpsModelStoreContainer">
+    <EntitySet Name="driver" EntityType="mygpsModel.Store.driver" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="feedback" EntityType="mygpsModel.Store.feedback" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="login" EntityType="mygpsModel.Store.login" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ownertracking" EntityType="mygpsModel.Store.ownertracking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="personallonglat" EntityType="mygpsModel.Store.personallonglat" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="persontracking" EntityType="mygpsModel.Store.persontracking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vehicletracking" EntityType="mygpsModel.Store.vehicletracking" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="driver">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="driverid" Type="nvarchar" MaxLength="50" />
+    <Property Name="drivername" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="cpassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="vehicleno" Type="nvarchar" MaxLength="50" />
+    <Property Name="driverimg" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="feedback">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="comment" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" />
+    <Property Name="activation" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ownertracking">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ownerid" Type="nvarchar" MaxLength="50" />
+    <Property Name="ownername" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="confirmpassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="contactno" Type="nvarchar" MaxLength="50" />
+    <Property Name="vehicleno" Type="nvarchar" MaxLength="50" />
+    <Property Name="ownerpic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="personallonglat">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pid" Type="varchar" MaxLength="50" />
+    <Property Name="pdate" Type="date" />
+    <Property Name="ptime" Type="varchar" MaxLength="50" />
+    <Property Name="longitude" Type="varchar" MaxLength="50" />
+    <Property Name="lattitude" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="persontracking">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="pid" Type="nvarchar" MaxLength="50" />
+    <Property Name="pname" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="repassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="rcontact1" Type="nvarchar" MaxLength="50" />
+    <Property Name="rcontact2" Type="nvarchar" MaxLength="50" />
+    <Property Name="rcontact3" Type="nvarchar" MaxLength="50" />
+    <Property Name="rcontact4" Type="nvarchar" MaxLength="50" />
+    <Property Name="pimg" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="vehicletracking">
+    <Key>
+      <PropertyRef Name="sno" />
+    </Key>
+    <Property Name="sno" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="driverid" Type="nvarchar" MaxLength="50" />
+    <Property Name="vno" Type="nvarchar" MaxLength="50" />
+    <Property Name="permitno" Type="nvarchar" MaxLength="50" />
+    <Property Name="permittype" Type="nvarchar" MaxLength="50" />
+    <Property Name="company" Type="nvarchar" MaxLength="50" />
+    <Property Name="avgspeed" Type="nvarchar" MaxLength="50" />
+    <Property Name="fueltank" Type="nvarchar" MaxLength="50" />
+    <Property Name="currenttankstatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+</Schema>
